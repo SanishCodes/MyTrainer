@@ -15,3 +15,23 @@ def show_angle(image, angle, reference_point):
     cv2.putText(image, str(angle),
                         tuple(np.multiply(reference_point, [1920,1080]).astype(int)),
                         cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,0), 6, cv2.LINE_AA)
+    
+
+def show_counter(image, counter):
+    box_color = (70, 130, 180)  
+
+    cv2.rectangle(image, (10, 10), (300, 120), box_color, -1)
+            
+            # Draw REPS Label
+    cv2.putText(image, 'REPS', 
+                (20, 50),  # Top-left padding
+                cv2.FONT_HERSHEY_SIMPLEX, 
+                0.8, 
+                (0, 0, 0), 2, cv2.LINE_AA)
+    
+    # Draw Counter Value
+    cv2.putText(image, str(counter), 
+                (20, 100),  
+                cv2.FONT_HERSHEY_SIMPLEX, 
+                2, 
+                (255, 255, 255), 4, cv2.LINE_AA)
