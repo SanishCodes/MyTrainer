@@ -1,11 +1,11 @@
-from .common import cv2, np, mp_pose, mp_drawing, calculate_angle, show_angle
+from .common import cv2, np, mp_pose, mp_drawing, calculate_angle, show_angle, show_counter
 
 def SquatsCounter():
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
     #curl counter variables
     counter = 0
-    stage = 'up'
+    stage = None
 
 
     #Setup mediapipe instance
@@ -30,8 +30,8 @@ def SquatsCounter():
 
                 #Get Coordinates
                 r_hip = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
-                r_knee = [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
-                r_ankle = [landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].x, landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].y]
+                r_knee = [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y]
+                r_ankle = [landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].y]
                 
                 #Calculate angle
                 
@@ -45,11 +45,13 @@ def SquatsCounter():
                 
                 
                 
-                if r_knee_angle > 82 and stage=='down':
+                if r_knee_angle > 140:
+                    if stage=='down':
+                        counter+=1
                     stage='up'
-                    counter+=1
+                    
                 
-                if r_knee_angle<75 and stage=='up':
+                if r_knee_angle < 120 and stage=='up':
                     stage='down'
                     
                 
@@ -57,24 +59,10 @@ def SquatsCounter():
             except:
                 pass
 
-            box_color = (70, 130, 180)  
+            show_counter(image, counter)
 
         
-            cv2.rectangle(image, (10, 10), (300, 120), box_color, -1)
             
-            # Draw REPS Label
-            cv2.putText(image, 'REPS', 
-                        (20, 50),  # Top-left padding
-                        cv2.FONT_HERSHEY_SIMPLEX, 
-                        0.8, 
-                        (0, 0, 0), 2, cv2.LINE_AA)
-            
-            # Draw Counter Value
-            cv2.putText(image, str(counter), 
-                        (20, 100),  
-                        cv2.FONT_HERSHEY_SIMPLEX, 
-                        2, 
-                        (255, 255, 255), 4, cv2.LINE_AA)
 
             
         
