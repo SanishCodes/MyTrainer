@@ -22,10 +22,10 @@ def main():
     elif choice == '5':
         OverheadTricepsCounter()
     
-    
-    
-    else:
-        print("Invalid choice. Exiting.")
+    elif choice == '6':
+        DeadliftCounter()
+
+   
 
 if __name__ == "__main__":
     main()
