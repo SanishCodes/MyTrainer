@@ -1,6 +1,6 @@
 from .biceps_curl_counter import BicepCurlCounter
 from .squats_counter import SquatsCounter
-from .pushups_counter import PushupsCounter
+from .pushup_counter import PushupCounter
 from .crunch_counter import CrunchCounter
 from .overhead_triceps_counter import OverheadTricepsCounter 
 from .deadlift_counter import DeadliftCounter

@@ -31,6 +31,8 @@ def main():
     elif choice == '8':
         BarbellRowCounter()
     
+    elif choice == '9':
+        LungesCounter()
     
     
     else:

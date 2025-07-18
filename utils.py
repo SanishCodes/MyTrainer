@@ -38,7 +38,7 @@ def show_angle(image, angle, reference_point):
 
     cv2.putText(image, str(angle),
                         tuple(np.multiply(reference_point, [1920,1080]).astype(int)),
-                        cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,0), 6, cv2.LINE_AA)
+                        cv2.FONT_HERSHEY_SIMPLEX, 3, (255,255,255), 6, cv2.LINE_AA)
     
 
 def show_counter(image, counter):
