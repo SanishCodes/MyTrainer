@@ -16,6 +16,10 @@ def main():
     elif choice == '3':
         PushupCounter()
     
+    elif choice == '4':
+        CrunchCounter()
+
+    
     
     else:
         print("Invalid choice. Exiting.")
