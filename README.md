@@ -55,7 +55,7 @@ MyTrainer/
 ### 1. Clone the Repository
 
 ```
-git clone https://github.com/your-username/ai-fitness-analyzer.git
+git clone https://github.com/your-username/rep-counter.git
 cd ai-fitness-analyzer
 ```
 
