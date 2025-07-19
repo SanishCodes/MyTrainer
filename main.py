@@ -4,7 +4,7 @@ from app.models import BicepCurlCounter, SquatsCounter, PushupCounter, CrunchCou
 
 def main():
    
-    print("Choose exercise: 1) Bicep Curl  2) Squats 3) Pushup 4) Crunch 5) Overhead Triceps 6) Deadlift 7) Lateral Raise 8) Barbell Row")
+    print("Choose exercise: 1) Bicep Curl  2) Squats 3) Pushup 4) Crunch 5) Overhead Triceps 6) Deadlift 7) Lateral Raise 8) Barbell Row 9) Lunges Counter")
     choice = input("Enter your choice (1-8): ")
 
     if choice == '1':
