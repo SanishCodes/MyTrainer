@@ -1,1 +1,1 @@
-# MyTrainer
+# AI Fitness Coach
